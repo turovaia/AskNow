@@ -8,7 +8,7 @@ from bs4 import BeautifulSoup
 
 #import sparql_template_generator
 verbalizing_url = "http://km.aifb.kit.edu/projects/spartiqulator/v5/verbalize.pl?"
-model = gensim.models.KeyedVectors.load_word2vec_format('/home/gaurav/Downloads/models/word2vec/GoogleNews-vectors-negative300.bin', binary=True)  
+model = gensim.models.KeyedVectors.load_word2vec_format('C:/Files/Git Repos/Research/NL to SPAQRL systems/AskNow/GoogleNews-vectors-negative300.bin', binary=True)  
 
 #generating sparql templates
 @post('/templates') 

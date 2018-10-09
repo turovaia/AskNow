@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import annotation.AnnotationOrch;
 import annotation.relationAnnotationToken;
+import init.initializer;
 import phrase.phrase;
 import phrase.phraseOrch;
 import phraseMerger.phraseMergerOrch;
@@ -15,7 +16,12 @@ import utils.qaldQuery;
 
 public class executeQuestion {
 
-	
+
+	public static void main(String[] args) {
+		initializer init = new initializer();
+		execute("What is the capital of Russian Federation?", true);
+	}
+
 	/*
 	 * This starts the processing pipelines. Also has a verbose variable which prints accordingly. This feature has not been implemnted
 	 * properly.
