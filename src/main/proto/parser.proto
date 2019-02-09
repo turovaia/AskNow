@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.parser.proto";
+option java_outer_classname = "GrpcParser";
+
+package grpcparser;
+
+service Parser {
+    rpc Parse (ParseRequest) returns (ParseResponse) {
+    }
+}
+
+message ParseRequest {
+    string query = 1;
+}
+
+message ParseResponse {
+    string result = 1;
+}

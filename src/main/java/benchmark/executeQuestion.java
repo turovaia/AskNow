@@ -1,9 +1,14 @@
 package benchmark;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import annotation.AnnotationOrch;
 import annotation.relationAnnotationToken;
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.OntModelSpec;
+import com.hp.hpl.jena.ontology.Ontology;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
 import init.initializer;
 import phrase.phrase;
 import phrase.phraseOrch;
@@ -19,7 +24,15 @@ public class executeQuestion {
 
 	public static void main(String[] args) {
 		initializer init = new initializer();
-		execute("What is the capital of Russian Federation?", true);
+		OntModel model = ModelFactory.createOntologyModel(OntModelSpec.OWL_MEM, null);
+		model.read("file:///C:/Files/YandexDisk/ПГУ/!Курсовая 3/Protege-5.2.0-win/moodle.owl", null);
+		 execute("What is the capital of Russian Federation?", model, true);
+        execute("What are courses?", model, true);
+        execute("What students enrolled in the databases?", model, true);
+        execute("What are students that enrolled in the databases?", model, true);
+        execute("What are students enrolled in the databases?", model, true);
+        execute("What courses ivanov ivan is enrolled in?", model, true);
+        execute("What are courses that ivanov ivan enrolled in?", model, true);
 	}
 
 	/*
@@ -29,7 +42,7 @@ public class executeQuestion {
 	 * 
 	 * */
 	
-	public static ArrayList<String> execute(String question, Boolean verbose){
+	public static ArrayList<String> execute(String question, OntModel ontology, Boolean verbose){
 		Integer counter = 10;
 		if(verbose){
 			System.out.println("The question is : " + question );
@@ -49,7 +62,7 @@ public class executeQuestion {
 		ArrayList<phrase> phraseList = phrase.startPhraseMerger(ques_annotation);
 		phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
 		AnnotationOrch annotation = new AnnotationOrch();
-		ArrayList<ArrayList<relationAnnotationToken>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation);
+		ArrayList<ArrayList<relationAnnotationToken>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation, ontology);
 		ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, phraseList);
 		ques_annotation.setPhraseList(phraseList);
 		if(verbose){
@@ -96,9 +109,9 @@ public class executeQuestion {
 			System.out.println("The generated sparql is :" + askNow_sparql);
 		}
 		
-		if (!askNow_sparql.equals("")){
-			 askNow_answer = qaldQuery.returnResultsQald(askNow_sparql);
-		}
+//		if (!askNow_sparql.equals("")){
+//			 askNow_answer = qaldQuery.returnResultsQald(askNow_sparql);
+//		}
 		return askNow_answer;
 	}
 }

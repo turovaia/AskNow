@@ -54,7 +54,7 @@ public class userQuestion {
 			ArrayList<phrase> phraseList = phrase.startPhraseMerger(ques_annotation);
 			phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
 			AnnotationOrch annotation = new AnnotationOrch();
-			ArrayList<ArrayList<relationAnnotationToken>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation);
+			ArrayList<ArrayList<relationAnnotationToken>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation, null);
 			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, phraseList);
 			ques_annotation.setPhraseList(phraseList);
 			String askNow_sparql = SparqlSelector.sparqlSelector(ques_annotation);

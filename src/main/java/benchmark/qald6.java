@@ -82,7 +82,7 @@ public class qald6 {
 						System.out.println("the quald returned results are :");
 						System.out.println(qald_result);
 						//This is the meat of the code. This is where the question is executed. 
-						ArrayList<String> askNow_answer = executeQuestion.execute(question,true);
+						ArrayList<String> askNow_answer = executeQuestion.execute(question,null, true);
 						if (askNow_answer != null){
 							if(askNow_answer.containsAll(qald_result) && qald_result.containsAll(askNow_answer)){
 								System.out.println("Atleast one right answer");

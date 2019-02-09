@@ -3,25 +3,13 @@ package benchmark;
 import init.initializer;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.InputStream;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.stream.Stream;
 
 import annotation.AnnotationOrch;
 import annotation.relationAnnotationToken;
 
 import java.io.IOException;
-import java.nio.file.Files;
-
-
-
-
-
-
 
 
 import phrase.phrase;
@@ -57,7 +45,7 @@ public class conceptBenchmark {
 			phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
 			AnnotationOrch annotation = new AnnotationOrch();
 			
-			ArrayList<ArrayList<relationAnnotationToken>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation);
+			ArrayList<ArrayList<relationAnnotationToken>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation, null);
 			
 			
 			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, phraseList);

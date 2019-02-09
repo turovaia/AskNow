@@ -4,6 +4,8 @@ package annotation;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.Ontology;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
@@ -44,4 +46,5 @@ import utils.spotlight;
 			}
 		}
 	}
-}
+
+ }

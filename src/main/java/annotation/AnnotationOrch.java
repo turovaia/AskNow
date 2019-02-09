@@ -2,15 +2,12 @@ package annotation;
 
 import java.util.ArrayList;
 
+import com.hp.hpl.jena.ontology.OntModel;
+import com.hp.hpl.jena.ontology.Ontology;
 import org.apache.log4j.Logger;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
-import org.apache.log4j.Logger;
 import phrase.phrase;
 import question.questionAnnotation;
-import token.token;
-import utils.spotlight;
 
 public class AnnotationOrch {
 	
@@ -23,12 +20,13 @@ public class AnnotationOrch {
 	
 	final static Logger logger = Logger.getLogger(AnnotationOrch.class);
 	
-	public ArrayList<ArrayList<relationAnnotationToken>> startAnnotationOrch(ArrayList<phrase> phraseList, questionAnnotation ques_annotation){
+	public ArrayList<ArrayList<relationAnnotationToken>> startAnnotationOrch(ArrayList<phrase> phraseList, questionAnnotation ques_annotation, OntModel ontology){
 			//call spotlight annotation. 
 			//for each phrase in the list pass it through the spotlight and check for its annotation.
 		
 		ArrayList<ArrayList<relationAnnotationToken>> finalRelList = new ArrayList<ArrayList<relationAnnotationToken>>();
-		entityAnnotation.Annotation(phraseList);
+
+		annotation.AnnotationCustomKt.AnnotationCustom(phraseList, ontology);
 		
 		try {
 			
@@ -36,7 +34,7 @@ public class AnnotationOrch {
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 		
 		return finalRelList;

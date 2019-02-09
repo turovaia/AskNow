@@ -25,7 +25,7 @@ public class SparqlSelector {
 			return sparql;
 		}
 		for (token tk: ques_annotation.getTokenlist()){
-			if (list.matcher(tk.getValue()).find()){
+			if (true || list.matcher(tk.getValue()).find()){
 				System.out.println("Its a list query");
 				//Add code logics here
 				sparql = listQuery.listQuerylogic(ques_annotation);

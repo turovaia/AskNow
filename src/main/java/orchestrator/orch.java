@@ -35,7 +35,7 @@ public class orch {
 			phraseMergerOrch phraseMergerOrchestrator = new phraseMergerOrch();
 			AnnotationOrch annotation = new AnnotationOrch();
 			
-			ArrayList<ArrayList<relationAnnotationToken>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation);
+			ArrayList<ArrayList<relationAnnotationToken>> relAnnotation = annotation.startAnnotationOrch(phraseList,ques_annotation, null);
 			
 			
 			ArrayList<ArrayList<phrase>> conceptList = phraseMergerOrchestrator.startPhraseMergerOrch(ques_annotation, phraseList);

@@ -65,7 +65,7 @@ public class qald6SimplePattern {
 				sparql = sparql.replaceAll("foaf:givenName","<http://xmlns.com/foaf/0.1/#givenName>").replaceAll("xsd:double", "<http://www.w3.org/2001/XMLSchema#double>").replaceAll("foaf:surname", "<http://xmlns.com/foaf/0.1/#surname>");
 				System.out.println("the qald query is " + sparql);
 				ArrayList<String> qald_result = qaldQuery.returnResultsQald(sparql);
-				ArrayList<String> askNow_answer = executeQuestion.execute(question,true);
+				ArrayList<String> askNow_answer = executeQuestion.execute(question,null, true);
 				if (askNow_answer != null){
 					if(askNow_answer.containsAll(qald_result) && qald_result.containsAll(askNow_answer)){
 						System.out.println("Atleast one right answer");
